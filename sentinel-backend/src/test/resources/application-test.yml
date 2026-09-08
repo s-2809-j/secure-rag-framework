@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: false   # H2 doesn't run Flyway migrations — JPA handles DDL in tests
+
+fastapi:
+  base-url: http://localhost:9999   # overridden by @DynamicPropertySource in FastApiClientTest
+
+jwt:
+  secret: dGVzdC1zZWNyZXQta2V5LXRoYXQtaXMtYXQtbGVhc3QtMjU2LWJpdHMtbG9uZy1mb3ItdGVzdGluZw==
+  access-expiry-ms: 900000
+  refresh-expiry-ms: 604800000
+
+cors:
+  allowed-origins:
+    - http://localhost:3000

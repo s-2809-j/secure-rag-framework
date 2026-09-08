@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    com.sentinel: INFO
+    org.springframework.security: WARN
+
+server:
+  error:
+    include-stacktrace: never
+    include-message: never

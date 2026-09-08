@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-sentinel-bg text-sentinel-text font-sans;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-sentinel-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sentinel-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-sentinel-muted;
+  }
+}
+
+@layer components {
+  /* Glass cards */
+  .glass-card {
+    @apply bg-sentinel-surface/80 backdrop-blur-sm border border-sentinel-border/50 rounded-2xl shadow-glass;
+  }
+
+  .glass-card-sm {
+    @apply bg-sentinel-surface/60 backdrop-blur-sm border border-sentinel-border/40 rounded-xl shadow-glass;
+  }
+
+  /* Inputs */
+  .sentinel-input {
+    @apply w-full bg-sentinel-dark border border-sentinel-border/60 rounded-xl px-4 py-3
+           text-sentinel-light placeholder-sentinel-muted
+           focus:outline-none focus:border-sentinel-accent focus:ring-1 focus:ring-sentinel-accent/30
+           transition-all duration-200;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-sentinel-accent hover:bg-sentinel-accent-dim text-sentinel-dark font-semibold
+           px-6 py-3 rounded-xl transition-all duration-200
+           hover:shadow-accent hover:-translate-y-0.5 active:translate-y-0
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply bg-sentinel-surface border border-sentinel-border hover:border-sentinel-accent/50
+           text-sentinel-text font-medium px-6 py-3 rounded-xl
+           transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-sentinel-danger/10 border border-sentinel-danger/30 hover:bg-sentinel-danger/20
+           text-sentinel-danger font-medium px-4 py-2 rounded-lg
+           transition-all duration-200;
+  }
+
+  /* Nav links */
+  .nav-link {
+    @apply px-4 py-2 rounded-lg text-sentinel-muted hover:text-sentinel-light hover:bg-sentinel-border/30
+           font-medium text-sm transition-all duration-200;
+  }
+
+  .nav-link-active {
+    @apply px-4 py-2 rounded-lg text-sentinel-accent bg-sentinel-accent/10 border border-sentinel-accent/20
+           font-medium text-sm transition-all duration-200;
+  }
+
+  /* Risk badges */
+  .risk-low      { @apply bg-sentinel-success/10 text-sentinel-success border border-sentinel-success/30; }
+  .risk-medium   { @apply bg-sentinel-warning/10 text-sentinel-warning border border-sentinel-warning/30; }
+  .risk-high     { @apply bg-sentinel-danger/10  text-sentinel-danger  border border-sentinel-danger/30;  }
+  .risk-critical { @apply bg-sentinel-critical/20 text-red-300         border border-red-500/40;           }
+
+  /* Status badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  /* Spinner */
+  .spinner {
+    @apply inline-block w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
+  }
+
+  /* Blocked message */
+  .blocked-banner {
+    @apply flex items-center gap-3 bg-sentinel-warning/10 border border-sentinel-warning/30
+           rounded-xl px-4 py-3 text-sentinel-warning text-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .bg-noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); }
+}

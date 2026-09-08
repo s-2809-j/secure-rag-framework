@@ -1,0 +1,26 @@
+{
+  "domain_id": "banking",
+  "display_name": "SentinelBank — Customer Q&A Assistant",
+  "description": "Synthetic retail banking assistant covering account policies, transaction FAQs, and business reimbursement rules.",
+  "branding": {
+    "primary_color": "#0B3D91",
+    "accent_color": "#FFB400",
+    "logo_label": "SentinelBank"
+  },
+  "documents_path": "domain_packs/banking/documents",
+  "sample_queries": [
+    "What is the daily withdrawal limit for a standard checking account?",
+    "How do I dispute a transaction I don't recognize?",
+    "What's the overdraft fee policy?",
+    "How much can I be reimbursed for hotel stays on a business trip?",
+    "How long does an international wire transfer take?"
+  ],
+  "sensitive_field_patterns": [
+    "account_number",
+    "routing_number",
+    "card_number",
+    "cvv",
+    "ssn"
+  ],
+  "notes": "sensitive_field_patterns is consumed by the Output Validator's PII check as a domain-specific hint list on top of the baseline Presidio detectors."
+}

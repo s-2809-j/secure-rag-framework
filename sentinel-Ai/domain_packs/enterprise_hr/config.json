@@ -1,0 +1,26 @@
+{
+  "domain_id": "enterprise_hr",
+  "display_name": "NovaCorp — Employee HR Assistant",
+  "description": "Synthetic enterprise HR assistant covering the employee handbook, leave policy, and expense policy.",
+  "branding": {
+    "primary_color": "#1F7A5C",
+    "accent_color": "#E8E3D3",
+    "logo_label": "NovaCorp HR"
+  },
+  "documents_path": "domain_packs/enterprise_hr/documents",
+  "sample_queries": [
+    "How many PTO days do I accrue per year?",
+    "What's the process for requesting parental leave?",
+    "Is the home-office stipend taxable or does it require pre-approval?",
+    "What's the deadline for submitting expense reports?",
+    "What's the dress code for client-facing roles?"
+  ],
+  "sensitive_field_patterns": [
+    "salary",
+    "compensation",
+    "ssn",
+    "employee_id",
+    "performance_review"
+  ],
+  "notes": "sensitive_field_patterns is consumed by the Output Validator's PII check as a domain-specific hint list on top of the baseline Presidio detectors."
+}
